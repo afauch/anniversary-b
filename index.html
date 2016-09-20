@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Happy Anniversary</title>
+    <meta name="description" content="Happy 29th Anniversary">
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/bryik/aframe-bmfont-text-component/master/dist/aframe-bmfont-text-component.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>    
+    <!-- CUSTOM MATERIAL SCRIPT -->
+    <script src="cloud-gen.js"></script>
+    <script src="heart-gen.js"></script>
+  </head>
+  <body>
+    <a-scene fog="type: linear; color: #C3EEFF; near:0; far:50">
+  
+        <!-- ASSETS -->
+        <a-assets>
+
+          <!-- HEARTS -->
+          <a-asset-item id="yellow-heart-obj" src="assets/yellow-heart.obj"></a-asset-item>
+          <a-asset-item id="yellow-heart-mtl" src="assets/yellow-heart.mtl"></a-asset-item>
+
+          <a-asset-item id="blue-heart-obj" src="assets/blue-heart.obj"></a-asset-item>
+          <a-asset-item id="blue-heart-mtl" src="assets/blue-heart.mtl"></a-asset-item>
+
+          <!-- CLOUDS -->
+          <a-asset-item id="cloud1-obj" src="assets/cloud1.obj"></a-asset-item>
+          <a-asset-item id="cloud1-mtl" src="assets/cloud1.mtl"></a-asset-item>
+          <a-asset-item id="cloud2-obj" src="assets/cloud2.obj"></a-asset-item>
+          <a-asset-item id="cloud2-mtl" src="assets/cloud2.mtl"></a-asset-item>
+          <a-asset-item id="cloud3-obj" src="assets/cloud3.obj"></a-asset-item>
+          <a-asset-item id="cloud3-mtl" src="assets/cloud3.mtl"></a-asset-item>
+
+        </a-assets>
+
+        <!-- CAMERA -->
+        <a-entity camera="userHeight: 1.8" look-controls>
+             <a-cursor color="#717171"></a-cursor>
+        </a-entity>
+
+        <!-- LIGHT -->
+
+        <!-- ORIGIN -->
+        <a-sphere position="0 0 0" radius=".5" color="#BD10E0"></a-sphere>
+
+        <!-- TEXT -->
+        <a-entity bmfont-text="text: Happy Anniversary; fnt:fonts/David-Libre-SDF.fnt; fntImage:fonts/David-Libre-SDF.png; color: #728C96; width: 300" scale="3.2 3.2 3.2" position="-2 .3 -2"></a-entity>
+
+        <!-- BAKED HEARTS -->
+<!--         <a-entity obj-model="obj: #yellow-heart-obj; mtl: #yellow-heart-mtl" scale=".2 .2 .2" position="0 2 -2">
+          <a-animation attribute="position" dur="1000" from="0 2 -2" to="0 2.4 -2" repeat="indefinite" direction="alternate"></a-animation>
+        </a-entity>
+        <a-entity obj-model="obj: #blue-heart-obj; mtl: #blue-heart-mtl" scale=".2 .2 .2" position="-2 4 -6"></a-entity>       
+        <a-entity obj-model="obj: #blue-heart-obj; mtl: #blue-heart-mtl" scale=".2 .2 .2" position="2 4 -6"></a-entity>       -->  
+
+        <!-- DYNAMIC HEARTS -->
+        <a-entity id="heart-container" position="0 0 0">
+        <!-- heart-gen.js inserts clouds here -->
+        </a-entity>
+        
+
+        <!-- CLOUDS -->
+
+        <a-entity id="cloud-container" position="0 0 0">
+        <!-- cloud-gen.js inserts clouds here -->
+        </a-entity>
+        
+        <!-- SKYBOX -->
+        <a-sky color="#FFF"></a-sky>
+
+
+    </a-scene>
+  </body>
+</html>
